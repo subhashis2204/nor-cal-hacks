@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+    font-family: "Poppins";
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black !important;
+}
