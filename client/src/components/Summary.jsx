@@ -7,7 +7,9 @@ function Summary() {
   return (
     <>
       <div>
-        <p className="text-justify">{summary}</p>
+        <p className="text-justify pt-5 mt-8 bg-white p-4 rounded-md max-w-[35rem]">
+          {summary}
+        </p>
       </div>
     </>
   )

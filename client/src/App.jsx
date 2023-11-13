@@ -12,11 +12,11 @@ function App() {
       <Navbar />
       <div className="px-7 py-2 bg-pink-100">
         <ImageComponent />
-        <div className="flex justify-around items-center py-4">
-          <div className="w-1/2">
+        <div className="grid grid-cols-2 items-center justify-center">
+          <div className="col-start-1 col-span-1">
             <ImageCarousel />
           </div>
-          <div className="w-1/2 px-2">
+          <div className="col-start-2 col-span-1">
             <OutputSection />
           </div>
         </div>
