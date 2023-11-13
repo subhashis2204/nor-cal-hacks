@@ -2,7 +2,7 @@ import json
 from langchain.chat_models import AzureChatOpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.document_loaders import TextLoader
-
+from langchain.chains.summarize import load_summarize_chain
 
 class FlashCardGenerator:
     def __init__(self, subscription_key, endpoint, deployment_name):
@@ -32,5 +32,19 @@ class FlashCardGenerator:
         except Exception as e:
             print(e)
             answer = []
+
+        return answer
+    
+    def generate_summary(self):
+        loader = TextLoader("output.txt", encoding='utf-8').load()
+        
+        try:
+            chain = load_summarize_chain(llm=self.llm, chain_type="map_reduce")
+            response = chain.run(input_documents=loader)
+
+            answer = response
+        except Exception as e:
+            print(e)
+            answer = ""
 
         return answer

@@ -23,7 +23,6 @@ gpt_key = os.environ['AZURE_OPENAI_KEY']
 gpt_endpoint = os.environ['AZURE_OPENAI_ENDPOINT']
 gpt_deployment_name = os.environ['AZURE_OPENAI_DEPLOYMENT_NAME']
 
-
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
@@ -46,8 +45,13 @@ def images():
 
     flashcards = FlashCardGenerator(
         gpt_key, gpt_endpoint, gpt_deployment_name).generate_flashcards()
+    
+    summary = FlashCardGenerator(
+        gpt_key, gpt_endpoint, gpt_deployment_name).generate_summary()
+    
+    print(summary)
 
-    return {'content': flashcards}
+    return {'content': flashcards, 'summary' : summary}
 
 
 if __name__ == '__main__':
